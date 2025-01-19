@@ -4,7 +4,7 @@ WelbeX Technical Task Junior Node.js Developer
 > Demo: [welbex.statebyte.dev](welbex.statebyte.dev)
 
 ### Server Backend:
-- Express.js + TypeORM + jose with TypeScript
+- Express.js + TypeORM + jose + Swagger with TypeScript
 - PostgreSQL
 
 ### Client Frontend:
@@ -12,12 +12,23 @@ WelbeX Technical Task Junior Node.js Developer
 
 +Bonus - CI Tests
 
+## Prepare before startup
+```
+cd ./backend
+cp .env.example .env
+cd ..
+```
+
 ## Startup locally
 ```
 docker compose up
 or
 docker compose up --build
 ```
+
+Click: [localhost](localhost)  
+API: [localhost/docs](localhost/api)  
+Docs: [localhost/docs](localhost/docs)
 
 ```
 .

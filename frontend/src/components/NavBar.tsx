@@ -19,11 +19,11 @@ const NavBar: React.FC<NavBarProps> = () => {
         <nav className="flex justify-between p-4 bg-gray-200">
             <div className="flex space-x-4">
                 <div>
-                    <Link to="/">WelbeX Blog Home</Link>
+                    <Link to="/" className="hover:text-blue-500 transition-colors duration-300">WelbeX Blog Home</Link>
                 </div>
                 <div className="flex space-x-4">
-                    {!token && <Link to="/login">Войти</Link>}
-                    {!token && <Link to="/register">Зарегистрироваться</Link>}
+                    {!token && <Link to="/login" className="hover:text-blue-500 transition-colors duration-300">Войти</Link>}
+                    {!token && <Link to="/register" className="hover:text-blue-500 transition-colors duration-300">Зарегистрироваться</Link>}
                 </div>
             </div>
             {token && <button className="text-red-600" onClick={handleLogout}>Выход ({login})</button>}

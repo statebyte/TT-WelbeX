@@ -11,13 +11,17 @@ const initialState: AuthState = {
     login: localStorage.getItem('login')
 }
 
-export const login = createAsyncThunk(
+export const loginThunk = createAsyncThunk(
     'auth/login',
-    async ({ loginValue, password }: { loginValue: string; password: string }) => {
-        const res = await axios.post('/api/auth/login', { loginValue, password })
+    async ({ login, password }: { login: string; password: string }) => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('login')
+
+        const res = await axios.post('/api/auth/login', { login, password })
+        
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('login', res.data.login)
-        return res.data.token
+        return { token: res.data.token, login: res.data.login }
     }
 )
 
@@ -32,19 +36,21 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        logout(state) {
-            state.token = null
-            state.login = null
+        logout: (state) => {
             localStorage.removeItem('token')
             localStorage.removeItem('login')
+            state.token = null
+            state.login = null
         }
     },
-    extraReducers: builder => {
-        builder.addCase(login.fulfilled, (state, action) => {
-            state.token = action.payload
+    extraReducers: (builder) => {
+        builder.addCase(loginThunk.fulfilled, (state, action) => {
+            state.token = action.payload.token
+            state.login = action.payload.login
         })
     }
 })
 
 export const { logout } = authSlice.actions
+
 export default authSlice.reducer

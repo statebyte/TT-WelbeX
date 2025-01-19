@@ -19,10 +19,19 @@
  *           properties:
  *             id:
  *               type: number
- *             email:
+ *             login:
  *               type: string
  *
  *     CreatePostInput:
+ *       type: object
+ *       required:
+ *         - content
+ *       properties:
+ *         content:
+ *           type: string
+ *         mediaUrl:
+ *           type: string
+ *     UpdatePostInput:
  *       type: object
  *       required:
  *         - content
