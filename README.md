@@ -1,7 +1,7 @@
 # TT-WelbeX Blog
 WelbeX Technical Task Junior Node.js Developer 
 
-> Demo: [welbex.statebyte.dev](welbex.statebyte.dev)
+> Demo: [welbex.statebyte.dev](https://welbex.statebyte.dev)
 
 ### Server Backend:
 - Express.js + TypeORM + jose + Swagger with TypeScript
@@ -26,9 +26,9 @@ or
 docker compose up --build
 ```
 
-Click: [localhost](localhost)  
-API: [localhost/docs](localhost/api)  
-Docs: [localhost/docs](localhost/docs)
+Click: [localhost](http://localhost)  
+API: [localhost/docs](http://localhost/api)  
+Docs: [localhost/docs](http://localhost/docs)
 
 ```
 .
